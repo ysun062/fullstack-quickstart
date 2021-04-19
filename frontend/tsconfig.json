@@ -1,0 +1,46 @@
+{
+	"compilerOptions": {
+		// For modern browser client, we target edge and above
+		"target": "es2019",
+
+		// For Rollup output es2015 modules
+		"module": "es2015",
+
+		// This is important to support 3rd party modules
+		"moduleResolution": "node", 
+		
+		// Go full or go home (get the full TypeScript's value)
+		"strict": true,
+		"noImplicitAny": true,
+
+		// Let js be
+		"allowJs": false,
+		"checkJs": false,
+
+		// emit rules
+		"removeComments": true,
+		"declaration": false,
+		"noEmitHelpers": true,
+		// sourcemapp
+		"sourceMap": true, 
+
+		// output for debug only, not used for packing 
+		// (rollup/typescript2 will have its own transient typescript output before doing the rollup)
+		"outDir": ".out/", 
+		
+		"experimentalDecorators": true,
+
+		// Needed to call import default (replaces allowSyntheticDefaultImports)
+		"esModuleInterop": true
+	},
+
+	// We want more control about which code we will compile and exclude
+	"include": [
+		"./src/**/*.ts"
+	],
+
+	"exclude": [
+		"node_modules",
+		".rpt2_cache" // this folder will be created by the rollup-typescript2, so, need to exlude it, can become confusing.
+	]
+}

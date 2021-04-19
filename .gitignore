@@ -1,0 +1,29 @@
+# Ignore . file by default
+.*
+
+!.gitignore
+
+# ignore node_modules
+node_modules/
+
+dist/
+
+# Ignore the web-folder compiled files
+server/web-folder/js/
+server/web-folder/css/
+
+# opt-in mode for images
+*.png
+!fav.png
+
+# Safety net
+*.sketch
+*.map
+*.jpeg
+*.jpg
+*.zip
+*.gz
+*.tar
+*.tgz
+*.mov
+*.mp4

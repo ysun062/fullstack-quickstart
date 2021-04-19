@@ -1,0 +1,44 @@
+{
+  "name": "@dom-native/quickstart",
+  "version": "0.1.14",
+  "description": "Simple but scalable Native Web Component quickstart based on Native Web Components, TypeScript, PostCSS, and dom-native",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dom-native/quickstart.git"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-multi-entry": "^4.0.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/minimist": "^1.2.1",
+    "autoprefixer": "^10.2.5",
+    "chokidar": "^3.5.1",
+    "execa": "^5.0.0",
+    "fs-extra-plus": "^0.5.21",
+    "livereload": "^0.9.3",
+    "lodash.debounce": "^4.0.8",
+    "minimist": "^1.2.5",
+    "pcss-cli": "^0.1.5",
+    "postcss": "^8.2.10",
+    "postcss-import": "^14.0.1",
+    "postcss-nested": "^5.0.5",
+    "rollup": "^2.45.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "TS_NODE_FILES=true ./node_modules/.bin/ts-node scripts/cmds.ts build",
+    "build-js": "cd frontend && ../node_modules/.bin/rollup -c rollup.config.js",
+    "build-css": "./node_modules/.bin/pcss -c frontend/pcss.config.js",
+    "watch": "TS_NODE_FILES=true ./node_modules/.bin/ts-node scripts/cmds.ts watch"
+  },
+  "engines": {
+    "node": ">=14.15.0"
+  },
+  "author": "Jeremy Chone <jeremy.chone@gmail.com> (http://jeremychone.com)",
+  "license": "MIT"
+}

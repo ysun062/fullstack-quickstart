@@ -1,0 +1,59 @@
+/**
+ *   This is the tsconfig.json for the backend services (not for devops or frontends)
+ */
+
+ {
+	"compilerOptions": {
+		// ES2020 for Node.js 14+
+		"target": "ES2020",
+
+		// For now, we keep the traditional commonsjs way
+		"module": "commonjs",
+		
+		// This is important to support 3rd party modules
+		"moduleResolution": "node",  
+		
+		// Go full or go home (get the full TypeScript's value)
+		"strict": true,
+		"noImplicitAny": true,
+
+		// Let js be
+		"allowJs": false,
+		"checkJs": false,
+
+		// emits
+		"removeComments": true,
+		"declaration": true,
+		"sourceMap": true,
+
+		// This will be the code run by the npm run start
+		"outDir": "./dist",
+
+		// Code mapping
+		"rootDir": "./src/",
+
+		// decorators for backend service code
+		"experimentalDecorators": true,
+		
+		// Needed to call import default (replaces allowSyntheticDefaultImports)
+		"esModuleInterop": true,
+		// ES2020 can use native class fields
+		"useDefineForClassFields": true,		
+
+		// Disallow inconsistently-cased references to the same file.
+		"forceConsistentCasingInFileNames": true  		
+	},
+
+	// We want more control about which code we will compile and exclude
+	"include": [
+		"./src/**/*.ts",
+		"./test/**/*.ts", 
+		// Note: shared/ and commont/ts will be compiled as imported by the service .ts code (~ tree shaking)
+		//       However, setup-module-aliases needs to be used (require) in entry file, and therefore explicitly inluded. 
+		"../_common/src/setup-module-aliases.ts"],
+
+	"exclude": [
+		"node_modules",
+		".rpt2_cache" // this folder will be created by the rollup-typescript2, so, need to exlude it, can become confusing.
+	]
+}

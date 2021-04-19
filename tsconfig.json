@@ -1,0 +1,50 @@
+// This file is for scripts/**/*.ts files so node js runtime
+{
+	"compilerOptions": {
+		// ES2020 for Node.js 14+
+		"target": "ES2020",
+
+		// For the node.js context, target commonjs for now
+		"module": "commonjs",
+
+		// This is important to support 3rd party modules that are still in a node.js/commonjs way
+		"moduleResolution": "node", 
+		
+		// Go full or go home (get the full TypeScript's value)
+		"strict": true,
+		"noImplicitAny": true,
+
+		// Let js be
+		"allowJs": false,
+		"checkJs": false,
+
+		// emits
+		"removeComments": true,
+		"declaration": true,
+		"sourceMap": true, 
+
+		// This is for debuging only, since scripts will be executed with ts-node
+		"outDir": "/.out/", 
+
+		// decorators for backend service code
+		"experimentalDecorators": true,
+
+		// Needed to call import default (replaces allowSyntheticDefaultImports)
+		"esModuleInterop": true,
+		// ES2020 can use native class fields
+		"useDefineForClassFields": true,
+
+		// Disallow inconsistently-cased references to the same file.
+		"forceConsistentCasingInFileNames": true
+	},
+
+	// We want more control about which code we will compile and exclude
+	"include": [
+		"./**/*.ts"
+	],
+
+	"exclude": [
+		"node_modules",
+		".rpt2_cache" // this folder will be created by the rollup-typescript2, so, need to exlude it, can become confusing.
+	]
+}

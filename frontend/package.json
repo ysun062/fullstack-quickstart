@@ -1,0 +1,17 @@
+{
+  "name": "@dom-native/quickstart",
+  "version": "0.1.0",
+  "description": "Simple but scalable fullstack quickstart frontend based on Native Web Components and TypeScript",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dom-native/quickstart.git"
+  },
+  "keywords": [],
+  "dependencies": {
+    "dom-native": "^0.9.21"
+  },
+  "scripts": {},
+  "author": "Jeremy Chone <jeremy.chone@gmail.com> (http://jeremychone.com)",
+  "license": "MIT"
+}
