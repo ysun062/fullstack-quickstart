@@ -13,17 +13,17 @@ class MainView extends BaseHTMLElement { // extends native HTMLElement
 		let messageContent = '';
 
 		//// EXAMPLE - hello1
-		const r1 = await fetch('/wapi/hello1');
+		const r1 = await fetch('wapi/hello1');
 		const obj1 = await r1.json();
 		messageContent += obj1.message + '\n';
 
-		//// EXAMPLE - hello2
-		const r2 = await fetch('/wapi/hello2');
+		//// EXAMPLE - hello1
+		const r2 = await fetch('wapi/hello2');
 		const obj2 = await r2.json();
 		messageContent += obj2.message + '\n';
 
 		//// EXAMPLE - hello3
-		const r3 = await fetch('/wapi/hello3');
+		const r3 = await fetch('wapi/hello3');
 		const obj3 = await r3.json();
 		messageContent += obj3.message + '\n';
 

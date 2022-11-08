@@ -32,33 +32,35 @@ async function main() {
 	// body parser
 	app.use(koaBody({ multipart: true }));
 
-	//// EXAMPLE - middleware that wrap the request to display preformance
+	//// Example that wrap the request to display performance
 	app.use(async (ctx, next) => {
 		const start = performance.now();
 		await next();
-		const duration = performance.now() - start;
-		console.log(`->> ${duration.toFixed(3)}ms - ${ctx.path} `);
+		const duration  = performance.now() - start;
+		console.log(`->> ${duration.toFixed(3)}ms - ${ctx.path}`);
 	});
 
-	//// EXAMPLE - hello1 - Middleware for basic path matching
+	//// Example - hello1 - Middleware for basic path matching
 	let hello1Count = 0;
 	app.use((ctx, next) => {
 		if (ctx.path == '/wapi/hello1') {
 			hello1Count++;
-			ctx.body = {
+			ctx.body = {	
 				message: `Hello1 from Server ${hello1Count}`
 			}
-		} else {
+		}
+		else  {
 			return next();
 		}
 	});
 
-	//// EXAMPLE - hello2 - @Koa/router for API
+
+	//// Example - hello2 - @koa/router for API
 	let hello2Count = 0;
-	const router = new Router({ prefix: '/wapi/' });
+	const router = new Router({prefix: '/wapi/'});
 	router.get('hello2', (ctx) => {
 		hello2Count++;
-		ctx.body = {
+		ctx.body = {	
 			message: `Hello2 from Server ${hello2Count}`
 		}
 	});
